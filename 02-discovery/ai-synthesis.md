@@ -1,17 +1,16 @@
-# AI Synthesis — Product Health & Insights Summary
-
-> **Module 2 · Lab 1.** Repo file `02-discovery/ai-synthesis.md` — part of your submission.
-> Do the lab in the **Module 2 · Exercise 1 Guide** (linked from the Module 2 deck), then click **⬇ Download .md** — it saves as this exact file. Commit it here.
-> It feeds the **Research & Competitive Analysis** slide of your Module 6 final deck, alongside `competitive-and-journey.md`.
+# AI Synthesis, Product Health & Insights Summary (Module 2)
 
 ## Responses
-
-- **Moment of misery / red flag #1:** _(not filled in)_
-- **Moment of misery / red flag #2:** _(not filled in)_
-- **Moment of misery / red flag #3:** _(not filled in)_
-- **Product Health & Insights Summary (Claude's output):** _(not filled in)_
-- **Did the AI catch the specific moment of misery / pain point you found in Step 1?:** _(not filled in)_
-- **Did it smooth over a critical frustration into a generic bullet point?:** _(not filled in)_
-- **Did the AI try to suggest features or a roadmap despite the constraints?:** _(not filled in)_
-- **Logic leak / hallucination #1:** _(not filled in)_
-- **Logic leak / hallucination #2:** _(not filled in)_
+- **Moment of misery / red flag #1 (e.g., “user gave up after 3 tries”):** The payer cannot complete the journey cleanly because the product assumes payer and service recipient are the same person.
+In common cases such as parents paying for learner drivers or children in orthodontic treatment, the financing link, consent or agreement may go to the wrong person, creating handoff friction and incomplete or confusing onboarding. (UXR-03 / ISSUE-301 · Critical)
+- **Moment of misery / red flag #2:** A driving-school installment plan can become outdated as soon as the learner needs additional lessons or exam attempts.
+The learner and payer want monthly predictability, but the product assumes a fixed final amount at enrollment, while the actual licence cost changes throughout the journey. (UXR-02 / UXR-05 / ISSUE-307 · Critical)
+- **Moment of misery / red flag #3:** Orthodontic payers cannot confidently tell what balance the installment plan actually covers.
+Treatment cost, invoice amount, co-payment and expected reimbursement are mixed together, creating a risk that families commit without understanding their true remaining obligation. (UXR-08 / ISSUE-312 / ISSUE-324 · High)
+- **Product Health & Insights Summary (Claude's output):** Executive Summary
+The feedback shows no evidence of general availability or stability problems; the main risks stem from fundamental gaps in the product model and workflows. These gaps make common situations difficult to handle, such as when the payer is different from the person receiving the service or when costs change over time. As a result, a technically connected process does not yet deliver an equally clear and seamless user experience.
+- **Did the AI catch the specific moment of misery / pain point you found in Step 1?:** Mostly yes. The synthesis captured the main pain points: partners do not want to manage or explain financing, customers lack predictability when costs change, and payer/service-recipient roles are not handled properly. However, the emotional moment of misery is stronger than the synthesis sometimes suggests: the partner is pulled back into the financing process exactly when they want to hand it off.
+- **Did it smooth over a critical frustration into a generic bullet point?:** Yes, partly. The category “Partner Workflow & Operational Handoff” is correct, but it bundles several different frustrations together. Duplicate data entry is an efficiency problem, while having to explain interest, declines or changing payment amounts is a much more sensitive ownership and trust problem. The latter should not be reduced to generic “operational friction".
+- **Did the AI try to suggest features or a roadmap despite the constraints?:** No. The synthesis remained focused on observed problems and product-health implications. It did not introduce a roadmap or explicit feature recommendations.
+- **Logic leak / hallucination #1 (e.g., “AI suggested a new search bar feature, roadmap leak”):** The synthesis stated that the installment offering appears “operationally viable at its core” and that there is “no evidence of broad technical instability.” This is plausible, but the provided data does not actually evaluate overall platform stability. The evidence only shows that the dominant reported issues are structural and UX-related rather than outages or crashes
+- **Logic leak / hallucination #2:** The synthesis described “multiple contracts” as a likely downstream consequence across long-running journeys. This is strongly supported for orthodontics, but should not automatically be generalized equally to both verticals. In driving schools, fragmented financing is a risk, but the evidence focuses more specifically on missing support for increasing amounts and later invoices.
