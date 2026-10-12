@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07162C">
+  <title>Collection Date Self-Service — Riverty PM Final Project</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#07162C;--panel:#0d203a;--panel2:#102642;--white:#fff;--muted:rgba(255,255,255,.72);--soft:rgba(255,255,255,.53);--orange:#fb923c;--cyan:#22d3ee;--teal:#34d399;--blue:#60a5fa;--violet:#a78bfa;--pink:#f472b6;--line:rgba(251,146,60,.25);--mono:'Antarctican Mono','IBM Plex Mono',monospace;--sans:'Saans','Inter',Arial,sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-snap-type:y mandatory;background:var(--bg)}body{margin:0;background:var(--bg);color:var(--white);font-family:var(--sans);font-size:16px;line-height:1.45}a{color:inherit}.progress{position:fixed;z-index:20;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--orange),var(--pink),var(--violet));box-shadow:0 0 12px rgba(251,146,60,.55)}.dots{position:fixed;right:24px;top:50%;z-index:15;display:flex;flex-direction:column;gap:12px;transform:translateY(-50%)}.dots a{width:10px;height:10px;border:1px solid rgba(255,255,255,.55);border-radius:50%;background:rgba(255,255,255,.12);transition:.2s}.dots a[aria-current="true"]{background:var(--orange);border-color:var(--orange);transform:scale(1.35)}.dots a:focus-visible,.btn:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}
+    section{min-height:100vh;scroll-snap-align:start;scroll-snap-stop:always;display:grid;place-items:center;padding:36px 7vw 32px;position:relative;overflow:hidden}.slide{width:min(1280px,100%);min-height:min(720px,calc(100vh - 70px));display:flex;flex-direction:column;justify-content:center;position:relative}.slide:before{content:"";position:absolute;inset:-15% -10%;pointer-events:none;opacity:.45;background:radial-gradient(ellipse at 10% 10%,rgba(96,165,250,.1),transparent 38%),radial-gradient(ellipse at 90% 85%,rgba(251,146,60,.09),transparent 34%);z-index:-1}.eyebrow,.label,.metric-label,.tag,.step,.footer{font-family:var(--mono);text-transform:uppercase;letter-spacing:.12em}.eyebrow{font-size:12px;font-weight:500;color:#fdba74;margin-bottom:14px}.kicker{font:500 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}h1,h2,h3,p{margin-top:0}h1{font-size:clamp(42px,6vw,82px);line-height:.99;letter-spacing:-.055em;margin:0 0 22px;max-width:950px}h2{font-size:clamp(30px,3.5vw,50px);line-height:1.02;letter-spacing:-.04em;margin:0 0 24px}h3{font-size:17px;line-height:1.15;margin:0 0 10px;letter-spacing:-.02em}.lead{font-size:clamp(18px,2vw,25px);line-height:1.35;color:var(--muted);max-width:850px}.muted{color:var(--muted)}.soft{color:var(--soft)}.accent{color:var(--orange)}.cyan{color:var(--cyan)}.teal{color:var(--teal)}.blue{color:var(--blue)}.violet{color:var(--violet)}.pink{color:var(--pink)}
+    .grid{display:grid;gap:14px}.two{grid-template-columns:repeat(2,minmax(0,1fr))}.three{grid-template-columns:repeat(3,minmax(0,1fr))}.four{grid-template-columns:repeat(4,minmax(0,1fr))}.card{background:linear-gradient(145deg,rgba(16,38,66,.96),rgba(9,26,48,.94));border:1px solid var(--line);border-radius:15px;padding:19px 20px;box-shadow:0 16px 44px rgba(0,0,0,.16)}.card.cyan-card{border-color:rgba(34,211,238,.28)}.card.teal-card{border-color:rgba(52,211,153,.3)}.card.violet-card{border-color:rgba(167,139,250,.35)}.card.pink-card{border-color:rgba(244,114,182,.32)}.card.orange-glow{background:linear-gradient(130deg,rgba(251,146,60,.15),rgba(16,38,66,.95) 55%);box-shadow:0 18px 55px rgba(251,146,60,.1)}.card p:last-child{margin-bottom:0}.label{font-size:10px;font-weight:500;color:#fdba74;margin-bottom:8px}.body-sm{font-size:13px;color:var(--muted);line-height:1.45}.body-xs{font-size:11px;color:var(--soft);line-height:1.4}.metric{font:500 clamp(30px,4vw,48px)/1 var(--mono);letter-spacing:-.07em}.metric-label{font-size:9px;color:var(--soft);margin-top:9px}.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:7px 11px;font:500 10px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.04)}.pill.orange{border-color:rgba(251,146,60,.4);color:#fed7aa;background:rgba(251,146,60,.1)}.pill.teal{border-color:rgba(52,211,153,.35);color:#a7f3d0;background:rgba(52,211,153,.08)}.pill.cyan{border-color:rgba(34,211,238,.35);color:#a5f3fc;background:rgba(34,211,238,.08)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;border-radius:10px;padding:12px 17px;font-weight:700;font-size:13px;color:#07162C;background:var(--orange);box-shadow:0 10px 30px rgba(251,146,60,.2);transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(251,146,60,.3)}.btn.secondary{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.24);box-shadow:none}.btn.secondary:hover{border-color:var(--orange)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}.footer{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;color:rgba(255,255,255,.36);font-size:9px;padding-top:12px;border-top:1px solid rgba(255,255,255,.08)}.footer span:last-child{color:#fdba74}.split{display:grid;grid-template-columns:1.05fr .95fr;gap:16px}.stack{display:flex;flex-direction:column;gap:12px}.stat-row{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.stat{padding:14px;border-radius:12px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.08)}.stat .metric{font-size:clamp(24px,3vw,38px)}.stat .metric-label{margin-top:7px}.list{display:grid;gap:9px;margin:0;padding:0;list-style:none}.list li{font-size:12px;line-height:1.4;color:var(--muted);padding-left:17px;position:relative}.list li:before{content:"";position:absolute;left:0;top:.48em;width:7px;height:7px;border-radius:50%;background:var(--orange)}.rule{height:1px;background:rgba(255,255,255,.09);margin:12px 0}.flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;align-items:stretch}.flow-step{position:relative;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:11px;padding:14px 12px;min-height:85px}.flow-step:not(:last-child):after{content:"→";position:absolute;right:-11px;top:50%;transform:translate(50%,-50%);z-index:2;color:var(--orange);font:16px var(--mono)}.step{font-size:9px;color:var(--orange);margin-bottom:8px}.lane{display:flex;flex-direction:column;gap:8px}.lane-title{font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}.road-card{padding:10px 11px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);font-size:11px;line-height:1.35;color:var(--muted)}.road-card strong{color:white}.score{font:500 9px var(--mono);color:var(--soft);display:block;margin-top:5px}.quote{font-size:clamp(17px,2vw,25px);line-height:1.35;letter-spacing:-.025em}.quote-mark{font:700 60px/0.6 var(--sans);color:var(--orange);opacity:.8}.tag-row{display:flex;flex-wrap:wrap;gap:8px}.center{display:grid;place-items:center;text-align:center}.big-number{font:500 clamp(40px,7vw,90px)/1 var(--mono);color:var(--orange);letter-spacing:-.09em}.callout{border-left:3px solid var(--orange);padding:12px 15px;background:rgba(251,146,60,.07);border-radius:0 9px 9px 0;color:var(--muted);font-size:12px;line-height:1.45}.decision{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.decision .card{padding:14px 15px}.decision h3{font-size:14px}.small-title{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--soft);margin-bottom:6px}
+    .cover .slide{justify-content:center}.cover:after{content:"";position:absolute;width:42vw;height:42vw;right:-10vw;top:8vh;border-radius:50%;background:radial-gradient(circle,rgba(251,146,60,.17),rgba(167,139,250,.08) 45%,transparent 70%);pointer-events:none}.cover .hero-line{width:75px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--orange),var(--pink));margin-bottom:24px}.cover .lead{margin-bottom:28px}.cover-meta{display:flex;gap:18px;flex-wrap:wrap;margin-top:28px;color:var(--muted);font-size:12px}.cover-meta span{display:flex;align-items:center;gap:8px}.cover-meta b{color:var(--soft);font:500 9px var(--mono);text-transform:uppercase;letter-spacing:.12em}.hypo{font-size:14px;line-height:1.52;color:white}.hypo strong{color:#fed7aa}.warning{font-size:10px;line-height:1.4;color:#fde68a;margin-top:10px}.slide-title-row{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:16px}.slide-title-row h2{margin:0}.slide-title-row .pill{flex-shrink:0}
+    @media(max-width:900px){section{padding:28px 6vw}.slide{min-height:calc(100vh - 55px)}.four{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr 1fr}.card{padding:15px}.body-sm{font-size:12px}.flow-step{padding:11px 9px;font-size:10px}.dots{right:10px}.footer{font-size:8px}}
+    @media(max-width:650px){html{scroll-snap-type:y proximity}section{padding:28px 20px 50px;min-height:100svh;overflow:visible}.slide{min-height:calc(100svh - 78px);justify-content:flex-start;padding-top:24px}.two,.three,.four,.split,.stat-row,.decision{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.flow-step{min-height:auto}.flow-step:not(:last-child):after{content:"↓";right:50%;top:auto;bottom:-15px;transform:translate(50%,0)}h2{font-size:34px}.cover h1{font-size:47px}.dots{display:none}.footer{position:static;margin-top:auto;padding-top:10px}.slide-title-row{align-items:flex-start;flex-direction:column}.stat-row{grid-template-columns:repeat(2,1fr)}.journey .flow-step{padding:10px}.cover .slide{justify-content:center}.cover-meta{flex-direction:column;gap:10px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <nav class="dots" aria-label="Slide navigation" id="dots"></nav>
+
+  <section class="cover" id="cover" aria-label="Cover">
+    <div class="slide">
+      <div class="eyebrow">Riverty · BFS Health Finance · Product Management Final Project</div>
+      <div class="hero-line"></div>
+      <h1>Collection Date<br><span class="accent">Self-Service</span></h1>
+      <p class="lead">Eligible payers can change their direct-debit collection date in the portal and see which installment will be affected, without contacting support.</p>
+      <div class="tag-row"><span class="pill orange">B2 · Change Collection Date</span><span class="pill cyan">Responsible Payers</span><span class="pill">Targeted Pilot</span></div>
+      <div class="cover-meta">
+        <span><b>Presented by</b> Lisa Preuschoff · Riverty PM</span>
+        <span><b>Repository</b> <a href="https://github.com/preu052/pm-final-project" target="_blank" rel="noreferrer">github.com/preu052/pm-final-project ↗</a></span>
+      </div>
+      <div class="actions"><a class="btn" href="https://chatgpt.com/c/6ac755de-c990-8336-ad0b-a684a74a2a39" target="_blank" rel="noreferrer">View prototype ↗</a><a class="btn secondary" href="https://github.com/preu052/pm-final-project" target="_blank" rel="noreferrer">Open project repository ↗</a></div>
+      <div class="footer"><span>Final project · Installment Plan Self-Service</span><span>01 / 08</span></div>
+    </div>
+  </section>
+
+  <section id="strategy" aria-label="Strategy">
+    <div class="slide">
+      <div class="eyebrow">Slide 5 · Strategy, problem, value & hypothesis</div>
+      <div class="slide-title-row"><h2>Make the payment change<br><span class="accent">clear and manageable.</span></h2><span class="pill orange">One focused problem</span></div>
+      <div class="grid two">
+        <article class="card">
+          <div class="label">Problem hook</div>
+          <p class="quote">When a responsible payer needs a different collection date, they cannot change it in the portal or see which installment will be affected. They have to contact Support.</p>
+          <div class="rule"></div>
+          <div class="label">Value proposition</div>
+          <p class="body-sm">The portal lets eligible payers choose an allowed collection date and see when the change takes effect. This gives them more control and can replace a manual support request.</p>
+        </article>
+        <article class="card orange-glow">
+          <div class="label">Data-backed hypothesis</div>
+          <p class="hypo">Based on M3 showing <strong>46.2K of 316K agreements (14.6%)</strong> with a post-creation manual contact, I believe that letting eligible Responsible Payers change their collection date in the portal will reduce collection-date-related manual contacts by <strong>20% relative within 30 days</strong>. I will protect the direct-debit return rate and make a go/no-go decision after the required sample and two full collection cycles.</p>
+          <p class="warning">14.6% includes all contact reasons. Establish the collection-date-specific baseline before interpreting results.</p>
+        </article>
+      </div>
+      <div class="grid three" style="margin-top:14px">
+        <div class="stat"><div class="metric accent">14.6%</div><div class="metric-label">All-cause post-creation contacts</div></div>
+        <div class="stat"><div class="metric pink">34.35%</div><div class="metric-label">Debit returns in manually contacted cohort</div></div>
+        <div class="stat"><div class="metric cyan">13.00%</div><div class="metric-label">Overall direct-debit return rate</div></div>
+      </div>
+      <p class="body-xs" style="margin:10px 0 0">The higher return rate is associated with manual contact; it does not prove that unclear collection-date changes cause returns.</p>
+      <div class="footer"><span>Evidence informs the opportunity; the pilot tests the B2-specific claim.</span><span>02 / 08</span></div>
+    </div>
+  </section>
+
+  <section id="research" aria-label="Research">
+    <div class="slide">
+      <div class="eyebrow">Slide 6 · Research, competitive analysis & journey</div>
+      <div class="slide-title-row"><h2>Today, a portal task<br><span class="cyan">becomes a support request.</span></h2><span class="pill cyan">Responsible Payer</span></div>
+      <div class="split" style="margin-bottom:14px">
+        <article class="card cyan-card">
+          <div class="label cyan">Persona & goal</div>
+          <h3>A parent or self-paying customer</h3>
+          <p class="body-sm">They are financially responsible for a service and want to understand and manage their installment agreement independently after setup.</p>
+          <div class="rule"></div>
+          <div class="label cyan">Current workaround</div>
+          <p class="body-sm">The payer checks the agreement, realizes the collection date needs to change, then contacts Support and waits for the request to be handled.</p>
+          <p class="body-xs" style="margin-top:8px">No competitor evidence is available in this case. The opportunity is based on the current support workaround.</p>
+        </article>
+        <article class="card">
+          <div class="label">What M3 tells us</div>
+          <div class="stat-row" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+            <div class="stat"><div class="metric" style="font-size:27px">6.05K</div><div class="metric-label">Extended agreements</div></div>
+            <div class="stat"><div class="metric" style="font-size:27px">6.73K</div><div class="metric-label">Shortened agreements</div></div>
+            <div class="stat"><div class="metric" style="font-size:27px">14.99%</div><div class="metric-label">Extension rate in contacted cohort</div></div>
+            <div class="stat"><div class="metric" style="font-size:27px">6.76%</div><div class="metric-label">Overall extension rate</div></div>
+          </div>
+          <p class="body-xs" style="margin-top:10px">These signals point to broader post-setup servicing needs. They do not isolate collection-date requests.</p>
+        </article>
+      </div>
+      <div class="label">Current journey · moment of misery highlighted</div>
+      <div class="flow journey">
+        <div class="flow-step"><div class="step">01 · Open</div><div class="body-sm">Payer opens the portal</div></div>
+        <div class="flow-step"><div class="step">02 · Review</div><div class="body-sm">Checks agreement and current date</div></div>
+        <div class="flow-step" style="border-color:rgba(251,146,60,.65);background:rgba(251,146,60,.09)"><div class="step">03 · Misery</div><div class="body-sm">Needs a different date; no self-service option</div></div>
+        <div class="flow-step"><div class="step">04 · Workaround</div><div class="body-sm">Contacts Support and waits</div></div>
+        <div class="flow-step" style="border-color:rgba(52,211,153,.5)"><div class="step" style="color:var(--teal)">B2 · Intervene</div><div class="body-sm">Choose allowed date; see affected installment</div></div>
+      </div>
+      <div class="footer"><span>Date-specific demand still needs tagging.</span><span>03 / 08</span></div>
+    </div>
+  </section>
+
+  <section id="blueprint" aria-label="Blueprint">
+    <div class="slide">
+      <div class="eyebrow">Slide 7 · Blueprint · roadmap, PRD & prototype</div>
+      <div class="slide-title-row"><h2>Build the self-service path<br><span class="teal">before expanding scope.</span></h2><a class="btn" href="https://chatgpt.com/c/6ac755de-c990-8336-ad0b-a684a74a2a39" target="_blank" rel="noreferrer">View prototype ↗</a></div>
+      <div class="grid four">
+        <div class="card teal-card"><div class="lane-title teal">Now · Pilot</div><div class="lane"><div class="road-card"><strong>B2</strong> · Change collection date<span class="score">V5 · E2 · Quick Win</span></div><div class="road-card"><strong>B7</strong> · Update bank details<span class="score">V5 · E2 · Quick Win</span></div><div class="road-card"><strong>B10</strong> · Funnel & contact tracking<span class="score">V4 · E2 · Quick Win</span></div></div></div>
+        <div class="card cyan-card"><div class="lane-title cyan">Next</div><div class="lane"><div class="road-card"><strong>B9</strong> · Status tracking<span class="score">V4 · E2</span></div><div class="road-card"><strong>B1</strong> · Edit installment term<span class="score">V5 · E3</span></div><div class="road-card"><strong>B8</strong> · Eligibility & calculation<span class="score">V4 · E3</span></div></div></div>
+        <div class="card violet-card"><div class="lane-title violet">Later</div><div class="lane"><div class="road-card"><strong>B3</strong> · Defer installment<span class="score">V5 · E4</span></div><div class="road-card"><strong>B6</strong> · Resolve returned debit<span class="score">V5 · E4</span></div><div class="road-card"><strong>B5</strong> · Early settlement<span class="score">V4 · E4</span></div></div></div>
+        <div class="card pink-card"><div class="lane-title pink">Cut</div><div class="lane"><div class="road-card"><strong>B4</strong> · Make an extra payment<span class="score">V3 · E4 · Time sinker</span></div><p class="body-xs">Partial-payment allocation and recalculation add complexity with a weaker link to the primary contact-reduction goal.</p></div></div>
+      </div>
+      <div class="grid two" style="margin-top:14px">
+        <article class="card">
+          <div class="label">B2 · PRD must-haves</div>
+          <ul class="list"><li>Show current collection date and eligible dates.</li><li>Show which installment will use the new date before confirmation.</li><li>Show success only after the change is saved.</li><li>Keep installment amount and agreement term unchanged.</li></ul>
+        </article>
+        <article class="card">
+          <div class="label">Scope boundaries</div>
+          <p class="body-sm"><strong>Should:</strong> Explain unavailable dates and suggest a next step. Track starts, completions, and failures through B10.</p>
+          <p class="body-sm" style="margin-top:8px"><strong>Won’t now:</strong> Manage multiple agreements, set a preferred date, add a calendar, change amounts or terms, defer payment, update bank details, or replace core systems.</p>
+        </article>
+      </div>
+      <div class="footer"><span>One core capability · configurable existing rules</span><span>04 / 08</span></div>
+    </div>
+  </section>
+
+  <section id="validation" aria-label="Validation">
+    <div class="slide">
+      <div class="eyebrow">Slide 8 · Validation · experiment plan</div>
+      <div class="slide-title-row"><h2>Test the change<br><span class="violet">before scaling it.</span></h2><span class="pill violet">50 / 50 A/B</span></div>
+      <div class="grid two">
+        <article class="card">
+          <div class="label violet">Hypothesis under test</div>
+          <p class="body-sm">Letting eligible payers change their collection date in the portal and see when it takes effect will reduce collection-date-related manual contacts within 30 days.</p>
+          <div class="rule"></div>
+          <div class="label">Control A</div><p class="body-sm">Payers can view the agreement in the portal but must contact Support to request a date change.</p>
+          <div class="label" style="margin-top:10px">Variant B · one change</div><p class="body-sm">Add the date-change flow: current date, allowed dates, affected installment, and confirmation after save.</p>
+        </article>
+        <article class="card violet-card">
+          <div class="label violet">Measures & sample · provisional</div>
+          <div class="stat-row" style="grid-template-columns:repeat(3,minmax(0,1fr))">
+            <div class="stat"><div class="metric" style="font-size:27px">14.6%</div><div class="metric-label">All-reason proxy</div></div>
+            <div class="stat"><div class="metric" style="font-size:27px">2.9 pp</div><div class="metric-label">Planning MDE</div></div>
+            <div class="stat"><div class="metric" style="font-size:27px">2,514</div><div class="metric-label">Payers / arm*</div></div>
+          </div>
+          <p class="body-sm" style="margin-top:12px"><strong>Primary:</strong> Share of assigned eligible payers with a collection-date-related manual contact within 30 days. Target: ≥20% relative reduction versus control.</p>
+          <p class="body-sm"><strong>Guardrail:</strong> Direct-debit return rate no more than 2 percentage points above control.</p>
+          <p class="warning">*Recalculate the sample size after measuring the date-specific baseline. 14.6% includes every contact reason.</p>
+        </article>
+      </div>
+      <div class="decision" style="margin-top:14px">
+        <article class="card teal-card"><div class="label teal">Ship</div><h3>Evidence meets the bar</h3><p class="body-xs">≥20% relative primary-metric reduction, p &lt; 0.05 (two-sided), and guardrail holds.</p></article>
+        <article class="card"><div class="label cyan">Iterate</div><h3>Inconclusive, guardrail holds</h3><p class="body-xs">Review date-specific baseline, sample, and funnel; extend or revise before deciding.</p></article>
+        <article class="card pink-card"><div class="label pink">Stop</div><h3>Safety or reliability issue</h3><p class="body-xs">Pause for a breached guardrail or any confirmed incorrect collection date.</p></article>
+      </div>
+      <p class="body-xs" style="margin:10px 0 0">Final readout only after the required sample, 30-day contact window, and at least two full collection cycles for both groups. Keep eligibility, date rules, amounts, terms, payment process, notifications, and Support service constant.</p>
+      <div class="footer"><span>Measurement and contact tagging apply to both groups.</span><span>05 / 08</span></div>
+    </div>
+  </section>
+
+  <section id="launch" aria-label="Launch">
+    <div class="slide">
+      <div class="eyebrow">Slide 9 · Launch · GTM strategy & success dashboard</div>
+      <div class="slide-title-row"><h2>Start targeted.<br><span class="accent">Scale on evidence.</span></h2><span class="pill orange">M · Targeted</span></div>
+      <div class="tag-row" style="margin-bottom:14px"><span class="pill orange">Goal · Conversion</span><span class="pill cyan">Audience · Eligible Responsible Payers</span><span class="pill teal">Tier · M</span><span class="pill">Channel · Owned</span></div>
+      <div class="grid two">
+        <article class="card">
+          <div class="label">Channel sequence</div>
+          <ul class="list">
+            <li><strong>During test:</strong> In-portal entry point shown only to eligible variant payers.</li>
+            <li><strong>Enablement:</strong> Internal Support FAQ and response template; keep customer-facing help content unchanged.</li>
+            <li><strong>After success:</strong> Publish help-centre content and email eligible payers for broader rollout.</li>
+          </ul>
+          <div class="rule"></div>
+          <div class="label">Owners & budget</div>
+          <p class="body-sm">Product Manager: experiment and go/no-go. Product Designer: flow and copy. Engineering Lead: implementation and tracking. QA Owner: eligibility, date rules, saved confirmation. Support Owner: internal FAQ and response template. Existing team capacity; no paid-media budget.</p>
+        </article>
+        <article class="card orange-glow">
+          <div class="label">Success dashboard</div>
+          <div class="stack">
+            <div class="stat"><div class="label">Primary · tagged manual contact</div><div class="metric" style="font-size:31px">−20% relative</div><div class="metric-label">Within 30 days · variant vs control · p &lt; 0.05</div></div>
+            <div class="grid two"><div class="stat"><div class="label teal">Supporting · self-service completion</div><div class="body-sm">Track completed changes among eligible variant payers.</div></div><div class="stat"><div class="label cyan">Guardrail · debit returns</div><div class="body-sm">No more than +2 percentage points vs control.</div></div></div>
+          </div>
+        </article>
+      </div>
+      <div class="callout" style="margin-top:14px"><strong>Bad signal:</strong> Self-service changes rise but tagged manual contacts do not fall, or direct-debit returns breach the +2 pp limit. Any confirmed incorrect date means stop and investigate.</div>
+      <div class="footer"><span>Pre-launch: establish date-specific baseline and recalculate sample.</span><span>06 / 08</span></div>
+    </div>
+  </section>
+
+  <section id="story" aria-label="Story and insights">
+    <div class="slide">
+      <div class="eyebrow">Slide 10 · Story · individual insights</div>
+      <div class="slide-title-row"><h2>The key was separating<br><span class="pink">the broad problem from B2.</span></h2><span class="pill" style="border-color:rgba(244,114,182,.4);color:#fbcfe8">Reflection</span></div>
+      <div class="grid two">
+        <article class="card pink-card">
+          <div class="label pink">Friction points</div>
+          <p class="quote">The broader customer problem is uncertainty about who pays and what the plan covers. B2, however, changes when a payment is collected.</p>
+          <div class="rule"></div>
+          <div class="label pink">Aha moment</div>
+          <p class="body-sm">The 14.6% contact rate includes all reasons. It cannot prove that collection-date questions are common or that B2 will reduce them. The test needs date-specific contact tagging and a matching baseline.</p>
+        </article>
+        <article class="card">
+          <div class="label">Key learnings</div>
+          <ul class="list"><li>Use evidence that matches the feature being tested.</li><li>Separate the customer action, the service outcome, and the payment guardrail.</li><li>Keep experiment exposure to one customer-facing change.</li></ul>
+          <div class="rule"></div>
+          <div class="label">What I’d do next</div>
+          <p class="body-sm">Establish the collection-date-specific baseline, recalculate the sample, validate the flow with eligible payers, and run the controlled pilot. Scale only if tagged contacts fall and payment reliability holds.</p>
+        </article>
+      </div>
+      <div class="footer"><span>Make the claim no broader than the evidence.</span><span>07 / 08</span></div>
+    </div>
+  </section>
+
+  <section id="submit" aria-label="Thank you and submit">
+    <div class="slide center">
+      <div class="eyebrow">Riverty · Product School Final Project</div>
+      <div class="big-number">Thank you.</div>
+      <h2 style="margin:16px 0 10px">One focused pilot.<br><span class="accent">One clear decision.</span></h2>
+      <p class="lead" style="font-size:17px;margin:0 auto 20px">Collection Date Self-Service for Responsible Payers</p>
+      <div class="tag-row" style="justify-content:center;margin-bottom:16px"><span class="pill orange">Lisa Preuschoff</span><span class="pill">Riverty PM</span></div>
+      <div class="actions" style="justify-content:center"><a class="btn" href="https://github.com/preu052/pm-final-project" target="_blank" rel="noreferrer">Open repository to submit ↗</a><a class="btn secondary" href="https://chatgpt.com/c/6ac755de-c990-8336-ad0b-a684a74a2a39" target="_blank" rel="noreferrer">View prototype ↗</a></div>
+      <p class="body-xs" style="margin-top:16px">Submit the repository link to the learning platform.</p>
+      <div class="footer"><span>Product School · PM Cohort</span><span>08 / 08</span></div>
+    </div>
+  </section>
+  <script>
+    (()=>{
+      const sections=[...document.querySelectorAll('body > section')];
+      const nav=document.getElementById('dots');
+      const progress=document.getElementById('progress');
+      sections.forEach((s,i)=>{const a=document.createElement('a');a.href='#'+s.id;a.setAttribute('aria-label',`Go to slide ${i+1}`);a.title=`Slide ${i+1}`;nav.appendChild(a)});
+      const dots=[...nav.querySelectorAll('a')];let active=0;
+      const setActive=i=>{active=Math.max(0,Math.min(sections.length-1,i));dots.forEach((d,n)=>{if(n===active)d.setAttribute('aria-current','true');else d.removeAttribute('aria-current')})};
+      const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)setActive(sections.indexOf(e.target))}),{threshold:.55});sections.forEach(s=>observer.observe(s));
+      const update=()=>{const max=document.documentElement.scrollHeight-innerHeight;progress.style.width=(max?scrollY/max*100:0)+'%'};addEventListener('scroll',update,{passive:true});addEventListener('resize',update);update();setActive(0);
+      addEventListener('keydown',e=>{if(e.altKey||e.ctrlKey||e.metaKey||['INPUT','TEXTAREA','SELECT'].includes(document.activeElement?.tagName))return;let next=null;if(e.key==='ArrowDown'||e.key===' '||e.key==='PageDown'){next=active+1;e.preventDefault()}else if(e.key==='ArrowUp'||e.key==='PageUp'){next=active-1;e.preventDefault()}else if(e.key==='Home'){next=0;e.preventDefault()}else if(e.key==='End'){next=sections.length-1;e.preventDefault()}else if(e.key==='Escape'){next=0;e.preventDefault()}if(next!==null)sections[Math.max(0,Math.min(sections.length-1,next))].scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})});
+    })();
+  </script>
+</body>
+</html>
